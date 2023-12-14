@@ -7,9 +7,11 @@ class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
     required this.meal,
+    required this.onSelectMeal,
   });
 
   final Meal meal;
+  final void Function() onSelectMeal;
 
   // capitalizes complexity text and returns String from enum
   String get complexityText {
@@ -32,7 +34,7 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: onSelectMeal,
         // Stack widget literally stacks widgets on top of each other
         child: Stack(
           children: [
